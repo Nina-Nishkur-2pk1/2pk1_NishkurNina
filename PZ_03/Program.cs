@@ -39,4 +39,10 @@
             }
         }
     }
-}
+}// заполнение матрицы случайными значениями
+Random random = new Random();
+for (int i = 0; i < n; i++)
+{
+    for (int j = 0; j < n; j++)
+    {
+        matrix[i, j] = random.Next(-10, 10); // случайное число от -10 до 10
