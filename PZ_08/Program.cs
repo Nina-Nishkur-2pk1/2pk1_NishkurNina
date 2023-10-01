@@ -9,62 +9,63 @@ namespace PZ_08
         {
             Console.WriteLine("Задание 1 и 2");
             // Создание ступенчатого массива
-            int[][] array = new int[15][];
+            string[][] array = new string[15][];
             Random random = new Random();
             for (int i = 0; i < array.Length; i++)
             {
                 int length = random.Next(2, 10);
-                array[i] = new int[length];
+                array[i] = new string[length];
                 for (int j = 0; j < length; j++)
                 {
-                    array[i][j] = random.Next(1, 45);
+                    array[i][j] = "Строка " + (i + 1) + ", элемент " + (j + 1);
                 }
             }
 
             // Вывод сгенерированного массива
-            foreach (int[] row in array)
+            foreach (string[] row in array)
             {
-                foreach (int num in row)
+                foreach (string str in row)
                 {
-                    Console.Write(num + " ");
+                    Console.Write(str + " ");
                 }
                 Console.WriteLine();
             }
+
             Console.WriteLine("Задание 3");
             // Создание и заполнение нового одномерного массива последними элементами каждой строки
-            int[] lastElements = new int[array.Length];
+            string[] lastElements = new string[array.Length];
             for (int i = 0; i < array.Length; i++)
             {
                 lastElements[i] = array[i][array[i].Length - 1];
             }
 
             // Вывод нового одномерного массива
-            foreach (int num in lastElements)
+            foreach (string str in lastElements)
             {
-                Console.Write(num + " ");
+                Console.Write(str + " ");
             }
             Console.WriteLine();
 
             Console.WriteLine("Задание 4");
             // Создание и заполнение массива максимальными элементами каждой строки
-            int[] maxElements = new int[array.Length];
+            string[] maxElements = new string[array.Length];
             for (int i = 0; i < array.Length; i++)
             {
-                int max = int.MinValue;
-                foreach (int num in array[i])
+                string max = array[i][0];
+                foreach (string str in array[i])
                 {
-                    if (num > max)
+                    if (str.CompareTo(max) > 0)
                     {
-                        max = num;
+                        max = str;
                     }
                 }
                 maxElements[i] = max;
             }
 
             // Вывод массива максимальных элементов
-            foreach (int num in maxElements)
+            foreach (string str in maxElements)
             {
-                Console.Write(num + " ");
+                Console.Write(str + " ");
             }
             Console.WriteLine();
 
@@ -73,20 +74,21 @@ namespace PZ_08
             for (int i = 0; i < array.Length; i++)
             {
                 int maxIndex = Array.IndexOf(array[i], maxElements[i]);
-                int temp = array[i][0];
+                string temp = array[i][0];
                 array[i][0] = array[i][maxIndex];
                 array[i][maxIndex] = temp;
             }
 
             // Вывод обновленного массива
-            foreach (int[] row in array)
+            foreach (string[] row in array)
             {
-                foreach (int num in row)
+                foreach (string str in row)
                 {
-                    Console.Write(num + " ");
+                    Console.Write(str + " ");
                 }
                 Console.WriteLine();
             }
+
             Console.WriteLine("Задание 6");
             // Реверс каждой строки ступенчатого массива
             for (int i = 0; i < array.Length; i++)
@@ -95,22 +97,23 @@ namespace PZ_08
             }
 
             // Вывод массива после реверса
-            foreach (int[] row in array)
+            foreach (string[] row in array)
             {
-                foreach (int num in row)
+                foreach (string str in row)
                 {
-                    Console.Write(num + " ");
+                    Console.Write(str + " ");
                 }
                 Console.WriteLine();
             }
+
             Console.WriteLine("Задание 7");
             // Подсчет общего количества символов в строках каждой строки массива
             int[] charCounts = new int[array.Length];
             for (int i = 0; i < array.Length; i++)
             {
-                foreach (int num in array[i])
+                foreach (string str in array[i])
                 {
-                    charCounts[i] += num.ToString().Length;
+                    charCounts[i] += str.Length;
                 }
             }
 
@@ -121,6 +124,8 @@ namespace PZ_08
             }
         }
     }
+
+
 }
 
 
