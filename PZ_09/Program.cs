@@ -1,4 +1,4 @@
-﻿namespace PZ_9
+﻿namespace PZ_09
 {
 
     class Program
